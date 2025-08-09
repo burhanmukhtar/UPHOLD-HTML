@@ -25,86 +25,47 @@ body {
     padding: 0 20px;
 }
 
-.header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4a5568;
-    text-decoration: none;
-}
-
-.logo svg {
-    margin-right: 0.5rem;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: #4a5568;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #667eea;
-}
-
-.mobile-menu {
+/* Hide all content except images */
+.header,
+.hero-section .container > *:not(.hero-images),
+.about-section,
+.testimonials-section,
+.top-platforms-section,
+.latest-reviews-section,
+.categories-section,
+.comparison-section,
+.stats-section,
+.cta-section,
+.newsletter-section,
+.security-section,
+.mobile-app-section,
+.partners-section,
+.blog-section,
+.footer {
     display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #4a5568;
 }
 
-.main-content {
-    background: white;
-    margin-top: 0;
-}
-
+/* Keep hero section but hide everything except images */
 .hero-section {
-    padding: 4rem 0;
-    text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    padding: 0;
+    margin: 0;
+    background: none;
 }
 
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+.hero-section .container {
+    max-width: none;
+    padding: 0;
 }
 
 .hero-images {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Updated image styling to match second HTML */
+.image-container {
     width: 100%;
     display: block;
 }
@@ -115,449 +76,308 @@ body {
     max-width: 100%;
     object-fit: contain;
     display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure images stack properly */
+.image-container:not(:last-child) {
     margin-bottom: 0;
 }
 
-.about-section {
-    padding: 4rem 0;
+/* Mobile responsiveness - maintain aspect ratio */
+@media (max-width: 768px) {
+    .hero-image {
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+/* Hidden sections styling (for when they become visible) */
+.newsletter-section {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+.newsletter-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.newsletter-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.newsletter-button {
+    padding: 15px 30px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.newsletter-button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+.security-section {
+    padding: 80px 0;
     background: #f8f9fa;
 }
 
-.about-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
-}
-
-.about-text {
-    font-size: 1.1rem;
-    color: #4a5568;
-    margin-bottom: 1.5rem;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.feature-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #2d3748;
-}
-
-.testimonials-section {
-    padding: 4rem 0;
-    background: white;
-}
-
-.testimonials-title {
+.security-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #2d3748;
+    margin-bottom: 60px;
+    color: #333;
 }
 
-.testimonials-grid {
+.security-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 40px;
 }
 
-.testimonial-card {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-}
-
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    color: #4a5568;
-}
-
-.testimonial-author {
-    font-weight: bold;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-rating {
-    color: #f6ad55;
-    font-size: 1.2rem;
-}
-
-.section-title {
+.security-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #2d3748;
+    transition: transform 0.3s;
 }
 
-.top-platforms-section {
-    padding: 4rem 0;
-    background: #f8f9fa;
-}
-
-.platforms-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.platform-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.platform-card:hover {
+.security-card:hover {
     transform: translateY(-5px);
 }
 
-.platform-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.platform-header h3 {
-    font-size: 1.5rem;
-    color: #2d3748;
-}
-
-.platform-rating {
-    font-weight: bold;
-    color: #667eea;
-}
-
-.platform-description {
-    color: #4a5568;
-    margin-bottom: 1.5rem;
-}
-
-.platform-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.feature-tag {
-    background: #667eea;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
-
-.platform-reviews {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.latest-reviews-section {
-    padding: 4rem 0;
-    background: white;
-}
-
-.latest-reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.latest-review-card {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid #667eea;
-}
-
-.review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-}
-
-.reviewer-name {
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.review-date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.review-platform {
-    font-weight: bold;
-    color: #667eea;
-    margin-bottom: 0.5rem;
-}
-
-.review-text {
-    color: #4a5568;
-    margin-bottom: 1rem;
-}
-
-.review-helpful {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.categories-section {
-    padding: 4rem 0;
-    background: #f8f9fa;
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.category-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-icon {
+.security-icon {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
+    display: block;
 }
 
-.category-card h3 {
-    color: #2d3748;
-    margin-bottom: 1rem;
+.security-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.category-count {
-    color: #667eea;
-    font-weight: bold;
-    margin-top: 1rem;
+.security-card p {
+    color: #666;
+    line-height: 1.6;
 }
 
-.comparison-section {
-    padding: 4rem 0;
-    background: white;
-}
-
-.comparison-table {
-    background: #f8f9fa;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.comparison-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    background: #667eea;
-    color: white;
-    font-weight: bold;
-}
-
-.comparison-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.comparison-cell {
-    padding: 1rem;
-    text-align: center;
-}
-
-.platform-name {
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.stats-section {
-    padding: 4rem 0;
+.mobile-app-section {
+    padding: 80px 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
-.stats-grid {
+.mobile-app-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
-.stat-card {
-    text-align: center;
-    padding: 2rem;
+.mobile-app-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
-.stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 1.2rem;
+.mobile-app-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
     opacity: 0.9;
 }
 
-.cta-section {
-    padding: 4rem 0;
-    background: #2d3748;
+.app-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.app-button {
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
     color: white;
-    text-align: center;
-}
-
-.cta-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta-text {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button {
-    background: #667eea;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-    background: #5a67d8;
-}
-
-.footer {
-    background: #2d3748;
-    color: white;
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links a {
-    color: #cbd5e0;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s;
 }
 
-.footer-links a:hover {
-    color: white;
+.app-button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
 }
 
-.footer-bottom {
+.mobile-app-image {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #4a5568;
-    color: #cbd5e0;
+}
+
+.mobile-app-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.partners-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.partners-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.partner-logo {
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+.partner-logo img {
+    max-width: 120px;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0%);
+}
+
+.blog-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.blog-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.blog-content {
+    padding: 30px;
+}
+
+.blog-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.blog-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .mobile-app-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
     
-    .mobile-menu {
-        display: block;
+    .newsletter-form {
+        flex-direction: column;
     }
     
-    .hero-title {
-        font-size: 2rem;
+    .app-buttons {
+        justify-content: center;
     }
     
-    .hero-images {
-        width: 100%;
-        display: block;
-    }
-    
-    .hero-image {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        object-fit: contain;
-        display: block;
-        margin-bottom: 0;
-    }
-    
-    .features {
+    .security-features {
         grid-template-columns: 1fr;
     }
     
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .container {
-        padding: 0 1rem;
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 </style>
@@ -594,11 +414,144 @@ body {
                 <h1 class="hero-title">Trusted Crypto Reviews</h1>
                 <p class="hero-subtitle">Your ultimate destination for honest cryptocurrency platform reviews</p>
                 <div class="hero-images">
-                    <img src="images/image1.jpeg" alt="Hero Image 1" class="hero-image">
-                    <img src="images/image2.jpeg" alt="Hero Image 2" class="hero-image">
-                    <img src="images/image3.jpeg" alt="Hero Image 3" class="hero-image">
-                    <img src="images/image4.jpeg" alt="Hero Image 4" class="hero-image">
-                    <img src="images/image5.jpeg" alt="Hero Image 5" class="hero-image">
+                    <div class="image-container">
+                        <img src="images/image1.jpeg" alt="Hero Image 1" class="hero-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/image2.jpeg" alt="Hero Image 2" class="hero-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/image3.jpeg" alt="Hero Image 3" class="hero-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/image4.jpeg" alt="Hero Image 4" class="hero-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/image5.jpeg" alt="Hero Image 5" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 class="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-subtitle">Get the latest crypto platform reviews and security updates delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" class="newsletter-input">
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <div class="container">
+                <h2 class="security-title">Security First Approach</h2>
+                <div class="security-features">
+                    <div class="security-card">
+                        <span class="security-icon">🔐</span>
+                        <h3>Advanced Encryption</h3>
+                        <p>All platform reviews include detailed security analysis with focus on encryption standards and data protection measures.</p>
+                    </div>
+                    <div class="security-card">
+                        <span class="security-icon">🛡️</span>
+                        <h3>Multi-Factor Authentication</h3>
+                        <p>We evaluate and review platforms based on their MFA implementation and user account security features.</p>
+                    </div>
+                    <div class="security-card">
+                        <span class="security-icon">🔍</span>
+                        <h3>Security Audits</h3>
+                        <p>Our reviews include information about third-party security audits and compliance certifications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mobile-app-section">
+            <div class="container">
+                <div class="mobile-app-content">
+                    <div class="mobile-app-text">
+                        <h2>Mobile App Reviews</h2>
+                        <p>Access comprehensive reviews of cryptocurrency mobile applications. We test and review mobile wallet security, user interface, and functionality across iOS and Android platforms.</p>
+                        <div class="app-buttons">
+                            <a href="#" class="app-button">iOS Reviews</a>
+                            <a href="#" class="app-button">Android Reviews</a>
+                        </div>
+                    </div>
+                    <div class="mobile-app-image">
+                        <div style="width: 300px; height: 200px; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <span style="font-size: 3rem;">📱</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="partners-title">Trusted Partners</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <div style="width: 120px; height: 60px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <span style="font-weight: bold; color: #666;">Partner 1</span>
+                        </div>
+                    </div>
+                    <div class="partner-logo">
+                        <div style="width: 120px; height: 60px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <span style="font-weight: bold; color: #666;">Partner 2</span>
+                        </div>
+                    </div>
+                    <div class="partner-logo">
+                        <div style="width: 120px; height: 60px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <span style="font-weight: bold; color: #666;">Partner 3</span>
+                        </div>
+                    </div>
+                    <div class="partner-logo">
+                        <div style="width: 120px; height: 60px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <span style="font-weight: bold; color: #666;">Partner 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <h2 class="blog-title">Latest Crypto News</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">📰</div>
+                        <div class="blog-content">
+                            <h3>Crypto Market Analysis</h3>
+                            <p>Latest trends and analysis of the cryptocurrency market with insights from our expert reviewers.</p>
+                            <div class="blog-meta">
+                                <span>By Admin</span>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">🔐</div>
+                        <div class="blog-content">
+                            <h3>Security Best Practices</h3>
+                            <p>Essential security tips for cryptocurrency users based on our platform reviews and security analysis.</p>
+                            <div class="blog-meta">
+                                <span>By Security Team</span>
+                                <span>5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">📊</div>
+                        <div class="blog-content">
+                            <h3>Platform Comparison Guide</h3>
+                            <p>Comprehensive comparison of top cryptocurrency platforms including features, fees, and security measures.</p>
+                            <div class="blog-meta">
+                                <span>By Review Team</span>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -649,299 +602,6 @@ body {
                         <p class="testimonial-text">"The Uphold platform offers great security features. Login is quick and I love the multi-currency support. Highly recommend for crypto trading."</p>
                         <div class="testimonial-author">Emma Rodriguez</div>
                         <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Coinbase wallet is reliable but Uphold login experience is much smoother. The fees are reasonable and withdrawals are fast."</p>
-                        <div class="testimonial-author">David Kim</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold's mobile app login works flawlessly. The security measures are top-notch and I feel safe storing my crypto there."</p>
-                        <div class="testimonial-author">Lisa Anderson</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Been using Uphold for crypto trading for months. The login process is straightforward and the platform is very stable."</p>
-                        <div class="testimonial-author">Robert Martinez</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold wallet security is excellent. The login verification process is thorough but not overly complicated. Great for beginners."</p>
-                        <div class="testimonial-author">Jennifer Taylor</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Metamask is good but Uphold's login system is more intuitive. The platform offers better customer support too."</p>
-                        <div class="testimonial-author">Alex Thompson</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold login is secure and fast. I appreciate the transparent fee structure and the variety of cryptocurrencies available."</p>
-                        <div class="testimonial-author">Maria Garcia</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Trust Wallet vs Uphold - I prefer Uphold's login experience. The interface is cleaner and more professional."</p>
-                        <div class="testimonial-author">John Williams</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold's crypto wallet login is protected by advanced security. Never had any unauthorized access attempts. Highly secure platform."</p>
-                        <div class="testimonial-author">Ashley Brown</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"The Uphold login process is simple yet secure. Great for both beginners and experienced traders. Customer service is responsive."</p>
-                        <div class="testimonial-author">Chris Davis</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold wallet offers excellent security features. The login system with biometric authentication is very convenient."</p>
-                        <div class="testimonial-author">Amanda Wilson</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Binance is popular but Uphold's login experience is more user-friendly. The platform is stable and reliable for crypto trading."</p>
-                        <div class="testimonial-author">Kevin Moore</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold crypto platform login is seamless across all devices. The synchronization between mobile and desktop is perfect."</p>
-                        <div class="testimonial-author">Rachel Green</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Kraken vs Uphold - I prefer Uphold's login system. It's faster and more intuitive. Great platform for crypto investments."</p>
-                        <div class="testimonial-author">Steven Clark</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold's wallet login security is top-tier. The platform offers great features for crypto portfolio management."</p>
-                        <div class="testimonial-author">Nicole Lewis</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"The Uphold login process is quick and secure. I've been using it for DeFi transactions and it's been reliable throughout."</p>
-                        <div class="testimonial-author">Brian Walker</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Uphold crypto wallet login is protected by advanced encryption. The platform offers competitive rates for crypto exchanges."</p>
-                        <div class="testimonial-author">Michelle Hall</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Crypto.com vs Uphold - Uphold wins with their login experience. The platform is more stable and user-friendly overall."</p>
-                        <div class="testimonial-author">Daniel Young</div>
-                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="top-platforms-section">
-            <div class="container">
-                <h2 class="section-title">Top Rated Crypto Platforms</h2>
-                <div class="platforms-grid">
-                    <div class="platform-card">
-                        <div class="platform-header">
-                            <h3>Uphold</h3>
-                            <div class="platform-rating">4.8/5 ⭐⭐⭐⭐⭐</div>
-                        </div>
-                        <p class="platform-description">Secure crypto wallet with excellent login experience and multi-currency support.</p>
-                        <div class="platform-features">
-                            <span class="feature-tag">Secure Login</span>
-                            <span class="feature-tag">Multi-Currency</span>
-                            <span class="feature-tag">Mobile App</span>
-                        </div>
-                        <div class="platform-reviews">2,847 Reviews</div>
-                    </div>
-                    <div class="platform-card">
-                        <div class="platform-header">
-                            <h3>Coinbase</h3>
-                            <div class="platform-rating">4.5/5 ⭐⭐⭐⭐</div>
-                        </div>
-                        <p class="platform-description">Popular exchange with user-friendly interface and strong security measures.</p>
-                        <div class="platform-features">
-                            <span class="feature-tag">Beginner Friendly</span>
-                            <span class="feature-tag">High Volume</span>
-                            <span class="feature-tag">Insurance</span>
-                        </div>
-                        <div class="platform-reviews">4,231 Reviews</div>
-                    </div>
-                    <div class="platform-card">
-                        <div class="platform-header">
-                            <h3>Binance</h3>
-                            <div class="platform-rating">4.3/5 ⭐⭐⭐⭐</div>
-                        </div>
-                        <p class="platform-description">World's largest crypto exchange with advanced trading features.</p>
-                        <div class="platform-features">
-                            <span class="feature-tag">Low Fees</span>
-                            <span class="feature-tag">Advanced Trading</span>
-                            <span class="feature-tag">Global</span>
-                        </div>
-                        <div class="platform-reviews">3,892 Reviews</div>
-                    </div>
-                    <div class="platform-card">
-                        <div class="platform-header">
-                            <h3>Kraken</h3>
-                            <div class="platform-rating">4.2/5 ⭐⭐⭐⭐</div>
-                        </div>
-                        <p class="platform-description">Established exchange known for security and regulatory compliance.</p>
-                        <div class="platform-features">
-                            <span class="feature-tag">Regulated</span>
-                            <span class="feature-tag">Security</span>
-                            <span class="feature-tag">Staking</span>
-                        </div>
-                        <div class="platform-reviews">2,156 Reviews</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="latest-reviews-section">
-            <div class="container">
-                <h2 class="section-title">Latest Reviews</h2>
-                <div class="latest-reviews-grid">
-                    <div class="latest-review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Tom Bradley</div>
-                                <div class="review-date">2 hours ago</div>
-                            </div>
-                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                        <div class="review-platform">Uphold Login Experience</div>
-                        <p class="review-text">Just signed up and the login process was incredibly smooth. Two-factor authentication setup was straightforward...</p>
-                        <div class="review-helpful">127 people found this helpful</div>
-                    </div>
-                    <div class="latest-review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Sophie Miller</div>
-                                <div class="review-date">5 hours ago</div>
-                            </div>
-                            <div class="review-rating">⭐⭐⭐⭐</div>
-                        </div>
-                        <div class="review-platform">Crypto Wallet Security</div>
-                        <p class="review-text">Been using various crypto wallets for years. The security features here are impressive, especially the biometric login...</p>
-                        <div class="review-helpful">89 people found this helpful</div>
-                    </div>
-                    <div class="latest-review-card">
-                        <div class="review-header">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Jake Peterson</div>
-                                <div class="review-date">1 day ago</div>
-                            </div>
-                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                        <div class="review-platform">Exchange Comparison</div>
-                        <p class="review-text">Compared 5 different exchanges and this one stands out for its user experience. The login system is fast and secure...</p>
-                        <div class="review-helpful">203 people found this helpful</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="categories-section">
-            <div class="container">
-                <h2 class="section-title">Browse by Category</h2>
-                <div class="categories-grid">
-                    <div class="category-card">
-                        <div class="category-icon">🏦</div>
-                        <h3>Crypto Exchanges</h3>
-                        <p>Reviews of major cryptocurrency exchanges</p>
-                        <div class="category-count">1,247 Reviews</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">👛</div>
-                        <h3>Crypto Wallets</h3>
-                        <p>Hardware and software wallet reviews</p>
-                        <div class="category-count">892 Reviews</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">🔐</div>
-                        <h3>Security Services</h3>
-                        <p>Crypto security and insurance platforms</p>
-                        <div class="category-count">456 Reviews</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">📊</div>
-                        <h3>Trading Platforms</h3>
-                        <p>Advanced trading and DeFi platforms</p>
-                        <div class="category-count">634 Reviews</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">💳</div>
-                        <h3>Payment Services</h3>
-                        <p>Crypto payment and card services</p>
-                        <div class="category-count">298 Reviews</div>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">🎯</div>
-                        <h3>Investment Platforms</h3>
-                        <p>Crypto investment and staking services</p>
-                        <div class="category-count">523 Reviews</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="comparison-section">
-            <div class="container">
-                <h2 class="section-title">Platform Comparisons</h2>
-                <div class="comparison-table">
-                    <div class="comparison-header">
-                        <div class="comparison-cell">Platform</div>
-                        <div class="comparison-cell">Security</div>
-                        <div class="comparison-cell">Fees</div>
-                        <div class="comparison-cell">User Experience</div>
-                        <div class="comparison-cell">Overall Rating</div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell platform-name">Uphold</div>
-                        <div class="comparison-cell">⭐⭐⭐⭐⭐</div>
-                        <div class="comparison-cell">Low</div>
-                        <div class="comparison-cell">⭐⭐⭐⭐⭐</div>
-                        <div class="comparison-cell">4.8/5</div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell platform-name">Coinbase</div>
-                        <div class="comparison-cell">⭐⭐⭐⭐</div>
-                        <div class="comparison-cell">Medium</div>
-                        <div class="comparison-cell">⭐⭐⭐⭐</div>
-                        <div class="comparison-cell">4.5/5</div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell platform-name">Binance</div>
-                        <div class="comparison-cell">⭐⭐⭐⭐</div>
-                        <div class="comparison-cell">Low</div>
-                        <div class="comparison-cell">⭐⭐⭐</div>
-                        <div class="comparison-cell">4.3/5</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats-section">
-            <div class="container">
-                <h2 class="section-title">CryptoReviewHub Stats</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">15,000+</div>
-                        <div class="stat-label">User Reviews</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">250+</div>
-                        <div class="stat-label">Platforms Reviewed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">50,000+</div>
-                        <div class="stat-label">Monthly Visitors</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4.7/5</div>
-                        <div class="stat-label">Average Rating</div>
                     </div>
                 </div>
             </div>
